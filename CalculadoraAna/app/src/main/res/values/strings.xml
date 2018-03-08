@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Calculadora Ana</string>
+    <string name="bntSoma">+</string>
+    <string name="btnSUb">-</string>
+    <string name="btnMulti">X</string>
+    <string name="btn1">1</string>
+    <string name="btn2">2</string>
+    <string name="btn3">3</string>
+    <string name="btn4">4</string>
+    <string name="btn5">5</string>
+    <string name="btn6">6</string>
+    <string name="btn7">7</string>
+    <string name="btn8">8</string>
+    <string name="btn9">9</string>
+    <string name="btnDiv">÷</string>
+    <string name="btn0">0</string>
+    <string name="res">0</string>
+    <string name="btnIgual">=</string>
+    <string name="btnPonto">.</string>
+    <string name="btnC">C</string>
+    <string name="ErroDiferente">O operador digitado é diferente do anterior\nDeseja substitui-lo?</string>
+    <string name="ErroIgual"> Você já selecionou essa opção\nAgora selecione um número ;D</string>
+    <string name="valoresAceitos">1234567890+-xX=.</string>
+    <string name="errotitulo">OOOPS!</string>
+    <string name="erroIgualtitulo">Ei,calma!</string>
+    <string name="alertbtnpositive">SUBSTITUIR</string>
+    <string name="negativebtnalert">MANTER</string>
+    <string name="btnoK">OK</string>
+    <string name="msgErroIgual">Ei! você já digitou essa operação! Digite um número</string>
+
+</resources>

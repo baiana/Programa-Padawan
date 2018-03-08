@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO Did you use Constraint layout because you prefer or just because it was there already ?[DONE]-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D1C4E9"
+    tools:context="padawana.calculadoraana.MainActivity">
+
+    <TextView
+        android:id="@+id/resultadoTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFF"
+        android:padding="23dp"
+        android:hint="0"
+        android:textAlignment="textEnd"
+        android:textColor="#4b4949"
+        android:textSize="50sp"
+
+        />
+
+    <!--TODO TextView also has compatibility, id should be in camelCase (first letter in lowercase)[DONE] -->
+    <TextView
+        android:id="@+id/historicoTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingLeft="18dp"
+        android:textAlignment="textStart"
+        android:textColor="#280359"
+        android:textSize="23sp"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:paddingTop="35dp">
+
+        <!--TODO you can use the regular LinearLayout, it has compatibility, you dont need to use the compat lib[DONE]-->
+        <LinearLayout
+            android:id="@+id/Linear741pt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--TODO use DP instead of sp -> sp is only for text[DONE]-->
+            <Button
+                android:id="@+id/btn7"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="@string/btn7"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background="@color/cordebotaoNum" />
+
+            <Button
+                android:id="@+id/btn4"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="@string/btn4"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background="@color/cordebotaoNum" />
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="@string/btn1"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background="@color/cordebotaoNum" />
+
+            <Button
+                android:id="@+id/btnponto"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="@string/btnPonto"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background="@color/cordebotaoNum" />
+
+
+        </LinearLayout>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/Linear8520"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/btn8"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="@string/btn8"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background="@color/cordebotaoNum" />
+
+            <!--TODO it's more common to set the click listener in activity[DONE]-->
+            <Button
+                android:id="@+id/btn5"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="@string/btn5"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background="@color/cordebotaoNum" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="@string/btn2"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background="@color/cordebotaoNum" />
+
+            <Button
+                android:id="@+id/btn0"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="@string/btn0"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background="@color/cordebotaoNum" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/Linear963divide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:gravity="bottom"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/btn9"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="@string/btn9"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background="@color/cordebotaoNum" />
+
+            <Button
+                android:id="@+id/btn6"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="@string/btn6"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background="@color/cordebotaoNum" />
+
+            <Button
+                android:id="@+id/btn3"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="@string/btn3"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background="@color/cordebotaoNum" />
+
+            <Button
+                android:id="@+id/btnIgl"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="@string/btnIgual"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background ="#462497" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/LinearOP"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            >
+
+            <Button
+                android:id="@+id/btnClear"
+                android:layout_width="match_parent"
+                android:layout_height="87dp"
+                android:text="@string/btnC"
+                android:textSize="35sp"
+                android:background ="#FFC107"
+                />
+
+
+            <Button
+                android:id="@+id/btnSoma"
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:text="@string/bntSoma"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background ="@color/corbotaoOP"
+                />
+
+            <Button
+                android:id="@+id/btnSub"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:text="@string/btnSUb"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background ="@color/corbotaoOP" />
+
+            <Button
+                android:id="@+id/btnMulti"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:text="@string/btnMulti"
+                android:textColor="#FFFF"
+                android:textSize="35sp"
+                android:background="@color/corbotaoOP" />
+
+            <Button
+                android:id="@+id/btnDiv"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:text="@string/btnDiv"
+                android:textColor="#FFFF"
+                android:textSize="40sp"
+                android:background ="@color/corbotaoOP" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
