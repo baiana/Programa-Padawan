@@ -11,13 +11,13 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.main_cartoes.view.*
 
-class CartoesFilmesAdapter(private val filmes: List<Filme>,private val context: Context): Adapter<CartoesFilmesAdapter.ViewHolder>()  {
+class CartoesFilmesAdapter(private val filmes: List<Filme>, private val context: Context): Adapter<CartoesFilmesAdapter.ViewHolder>()  {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titulo = itemView.titulo
         val sinopse = itemView.sinopse
 
-       public fun bindView(filme:Filme) {
+      fun bindView(filme:Filme) {
             val titulo = itemView.titulo
             val sinopse = itemView.sinopse
             titulo.text = filme.titulo
@@ -32,15 +32,15 @@ class CartoesFilmesAdapter(private val filmes: List<Filme>,private val context: 
         return ViewHolder(view)
     }
     override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        return filmes.size
     }
 
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         val filmes = filmes[position]
-        //TODO usar ? safe call ou if
-        //TODO usar o let se o holder não for null
-        //bindView(filmes)
+        holder!!.bindView(filmes)
+
 
 
     }
