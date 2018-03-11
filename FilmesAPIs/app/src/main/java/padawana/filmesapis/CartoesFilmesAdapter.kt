@@ -14,12 +14,12 @@ import kotlinx.android.synthetic.main.main_cartoes.view.*
 class CartoesFilmesAdapter(private val filmes: List<Filme>, private val context: Context): Adapter<CartoesFilmesAdapter.ViewHolder>()  {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val titulo = itemView.titulo
-        val sinopse = itemView.sinopse
+        var titulo = itemView.titulo
+        var sinopse = itemView.sinopse
 
       fun bindView(filme:Filme) {
-            val titulo = itemView.titulo
-            val sinopse = itemView.sinopse
+             titulo = itemView.titulo
+             sinopse = itemView.sinopse
             titulo.text = filme.titulo
             sinopse.text = filme.sinopse
         }

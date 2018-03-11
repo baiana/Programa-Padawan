@@ -22,11 +22,11 @@ class CartoesFilmesActivity : AppCompatActivity() {
 
     private fun filmes(): List<Filme> {
         return listOf(
-                Filme(1243,
+                Filme("filme biblico ",
                         "Noé"),
-                Filme( 5675,
+                Filme( "xcddsffds",
                         "Zootopia"),
-                Filme(3545,
+                Filme("dsdfsfsf",
                         "Crepúsculo"))
     }
 

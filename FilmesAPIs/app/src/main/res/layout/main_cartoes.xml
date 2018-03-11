@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:maxHeight="250dp">
+    android:maxHeight="250dp"
+    tools:context="padawana.filmesapis.CartoesFilmesActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
