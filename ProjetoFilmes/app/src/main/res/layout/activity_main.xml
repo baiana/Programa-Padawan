@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="padawana.projetofilmes.MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="left"
+        >
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view"
+
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            card_view:cardCornerRadius="2dp"
+            card_view:cardBackgroundColor="@color/cardview_dark_background">
+
+            <TextView
+                android:id="@+id/info_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view3"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            card_view:cardCornerRadius="2dp"
+            card_view:cardBackgroundColor="@color/cardview_light_background">
+
+            <TextView
+                android:id="@+id/info_text3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view2"
+
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            card_view:cardCornerRadius="2dp"
+            card_view:cardBackgroundColor="@color/cardview_light_background">
+
+            <TextView
+                android:id="@+id/info_text2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="right"
+        >
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view4"
+            card_view:cardElevation="15dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            card_view:cardCornerRadius="2dp"
+            card_view:cardBackgroundColor="@color/primary_dark">
+
+            <TextView
+                android:id="@+id/info_t4ext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view43"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            card_view:cardCornerRadius="2dp"
+            card_view:cardBackgroundColor="@color/cardview_light_background">
+
+            <TextView
+                android:id="@+id/info_t4ext3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view42"
+
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            card_view:cardCornerRadius="2dp"
+            card_view:cardBackgroundColor="@color/cardview_light_background">
+
+            <TextView
+                android:id="@+id/info_te4xt2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>
