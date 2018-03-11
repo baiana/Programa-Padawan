@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        
         val recyclerView = Recycler1
         recyclerView.adapter = CartoesFilmesAdapter(filmes(), this)
         val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
@@ -19,11 +19,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun filmes(): List<Filme> {
         return listOf(
-                Filme(1243,
+                Filme("",
                         "Noé"),
-                Filme( 5675,
+                Filme( "",
                         "Zootopia"),
-                Filme(3545,
+                Filme("",
                         "Crepúsculo"))
     }
 }
