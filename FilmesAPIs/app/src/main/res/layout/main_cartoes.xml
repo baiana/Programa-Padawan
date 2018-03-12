@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:maxHeight="250dp"
-    tools:context="padawana.filmesapis.CartoesFilmesActivity">
+    tools:context="padawana.filmesapis.Activity.CartoesFilmesActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

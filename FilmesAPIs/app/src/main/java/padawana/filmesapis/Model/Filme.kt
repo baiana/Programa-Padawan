@@ -1,4 +1,4 @@
-package padawana.filmesapis
+package padawana.filmesapis.Model
 
 class Filme( var sinopse:String,
             var titulo:String?){
