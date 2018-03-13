@@ -11,6 +11,6 @@ class RetrofitIncializador{
             .baseUrl("https://api.themoviedb.org/3/movie/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
+//TODO verifcar URl base e chamar chave da API dos values
     fun Filmeservice(): FilmeService = retrofit.create(FilmeService::class.java)
 }

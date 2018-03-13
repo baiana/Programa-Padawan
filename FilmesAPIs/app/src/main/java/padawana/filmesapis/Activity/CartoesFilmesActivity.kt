@@ -3,14 +3,12 @@ package padawana.filmesapis.Activity
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.StaggeredGridLayoutManager
-import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import padawana.filmesapis.CartoesFilmesAdapter
 import padawana.filmesapis.Model.Filme
 import padawana.filmesapis.R
-import padawana.filmesapis.Retrofit.RetrofitIncializador
-import retrofit2.Call
-import retrofit2.Response
+import padawana.filmesapis.Retrofit.FilmeResposta
+import padawana.filmesapis.Retrofit.FilmesWebClient
 
 /**
  * Programado com amor por Ana Luísa Dias em 10/03/2018.
@@ -22,25 +20,17 @@ class CartoesFilmesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_cartoes)
 
-        val call= RetrofitIncializador().Filmeservice().listarFilmes()
-        call.enqueue(object: retrofit2.Callback<List<Filme>?> {
-            override fun onResponse(call: Call<List<Filme>?>?, response: Response<List<Filme>?>?) {
-                response?.body()?.let {
-                    val filmes:List<Filme> = it
-                    configuraLista(filmes)
-                }}
-
-            override fun onFailure(call: Call<List<Filme>?>?, t: Throwable?) {
-                Log.e("ERRO no ONFAILURE\n",t?.message)
-
+        FilmesWebClient().lista(object : FilmeResposta {
+            override fun sucesso(filmes: List<Filme>) {
+                configuraLista(filmes)
             }
         })
-
     }
-
+//TODO tornar activity principal (?)
     private fun configuraLista(filmes:List<Filme>) {
         val recyclerView = Recycler1
         recyclerView.adapter = CartoesFilmesAdapter(filmes, this)
+    //TODO mudar para gridView
         val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager = layoutManager
     }
