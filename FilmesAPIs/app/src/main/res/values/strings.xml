@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">FilmesAPIs</string>
-    <string name="linha_1">Esta é a primeira linha</string>
-    <string name="titulo">Titulo</string>
-    <string name="desc">Descrição</string>
-    <string name="title_activity_filme_selecionado">FilmeSelecionado</string>
-    <string name="APIkey">9d61623e84414389bee8063e589ae6f4</string>
-</resources>
