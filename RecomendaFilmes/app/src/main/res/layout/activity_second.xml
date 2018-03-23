@@ -3,8 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@android:color/black"
       >
+
     <include
         android:id="@+id/toolbarInclude"
         layout="@layout/toolbar"
@@ -36,10 +37,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-
                 android:gravity="center"
                 android:text="Hoje"
-                android:textColor="@android:color/black"
+                android:textColor="#ffffff"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -47,10 +47,10 @@
                 android:id="@+id/sinopseTXT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="6dp"
                 android:gravity="center"
                 android:text="sinopse"
-                android:layout_margin="6dp"
-                android:textColor="@android:color/black"
+                android:textColor="#FFFFFF"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 

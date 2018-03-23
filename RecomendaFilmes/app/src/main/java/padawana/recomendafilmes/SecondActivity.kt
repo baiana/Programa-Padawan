@@ -13,8 +13,8 @@ class SecondActivity : AppCompatActivity() {
     object const {
 
         @JvmStatic
-        val MESSAGE = "message"
-        val SINOPSE = ""
+        val MESSAGE = "Titulo"
+        val SINOPSE = "Sinopse"
         val FUNDOURL = null
     }
 
@@ -53,7 +53,6 @@ class SecondActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home)
             onBackPressed()
-
         return super.onOptionsItemSelected(item)
     }
 }

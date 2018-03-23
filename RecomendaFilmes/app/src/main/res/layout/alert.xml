@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:id="@+id/pipocaAlert"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="28dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@mipmap/popcorn"
+        />
+
+    <TextView
+        android:id="@+id/textErro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_margin="10dp"
+        android:text="@string/MsgErro"
+        />
+    <TextView
+        android:id="@+id/textComplementoErro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/colorPrimary"
+        android:textAlignment="center"
+
+        />
+
+
+</android.support.v7.widget.LinearLayoutCompat>
