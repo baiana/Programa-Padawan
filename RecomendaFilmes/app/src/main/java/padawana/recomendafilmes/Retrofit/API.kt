@@ -1,5 +1,6 @@
-package padawana.recomendafilmes
+package padawana.recomendafilmes.Retrofit
 
+import padawana.recomendafilmes.FilmeInterface
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

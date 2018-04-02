@@ -3,4 +3,7 @@
     <string name="MsgErro">Ops!\n Surgiu um erro ao retornar os filmes :(</string>
     <string name="SugestErro">Cheque sua internet e aprecie essa pipoca enquanto o problema é resolvido!</string>
     <string name="titulo">Titulo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

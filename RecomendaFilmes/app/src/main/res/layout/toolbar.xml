@@ -5,8 +5,8 @@
     android:id="@+id/_toolbarLayout"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/actionBarSize"
-    android:background="@color/colorPrimary"
-    android:elevation="8dp">
+    android:theme="@style/AnaToolbar"
+    android:elevation="0dp">
 
 
     <android.support.v7.widget.Toolbar
@@ -14,7 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:orientation="vertical"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        app:theme="@style/AnaToolbar"
+        app:titleTextColor="@color/primary_text"
+
+       >
 
     </android.support.v7.widget.Toolbar>
 
