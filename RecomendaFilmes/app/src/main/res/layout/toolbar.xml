@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/_toolbarLayout"
     android:layout_width="match_parent"
-    android:layout_height="?android:attr/actionBarSize"
-    android:theme="@style/AnaToolbar"
-    android:elevation="0dp">
-
+    android:layout_height="?android:attr/actionBarSize">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -15,10 +11,6 @@
         android:layout_height="?android:attr/actionBarSize"
         android:orientation="vertical"
         app:theme="@style/AnaToolbar"
-        app:titleTextColor="@color/primary_text"
-
-       >
-
-    </android.support.v7.widget.Toolbar>
+        app:titleTextColor="@color/primary_text" />
 
 </RelativeLayout>

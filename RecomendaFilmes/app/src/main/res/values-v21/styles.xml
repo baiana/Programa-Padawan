@@ -1,17 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AnaToolbar">
-        <item name="android:colorAccent">@color/accent</item>
-        <item name="android:background">@color/primary_dark</item>
-        <item name="android:textColor">@color/primary_light</item>
-    </style>
-
-    <style name="MiniPoster">
-        <item name="android:layout_marginTop">5dp</item>
-        <item name="android:scaleType">centerInside</item>
-        <item name="android:background">#000000</item>
-        <item name="android:elevation">8dp</item>
-        a
-    </style>
 </resources>
