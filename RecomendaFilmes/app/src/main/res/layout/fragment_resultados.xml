@@ -1,0 +1,27 @@
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="padawana.recomendafilmes.Fragmentos.ResultadosFragment">
+
+    <include
+        android:id="@+id/loadingBar"
+        layout="@layout/loading"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewPesquisa"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/carinhaTriste"
+        android:src="@mipmap/sadsleppy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="50dp"
+        android:visibility="gone" />
+
+</FrameLayout>

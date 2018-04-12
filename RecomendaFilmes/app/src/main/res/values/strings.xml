@@ -4,7 +4,4 @@
     <string name="SugestErro">Cheque sua internet e aprecie essa pipoca enquanto o problema é resolvido!</string>
     <string name="titulo">Titulo</string>
     <string name="busca">Busca</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-</resources>
+    </resources>

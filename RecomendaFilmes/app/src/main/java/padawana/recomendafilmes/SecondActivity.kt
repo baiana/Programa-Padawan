@@ -26,7 +26,6 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-
         val title = intent.getStringExtra(MESSAGE)
         val sinopse = intent.getStringExtra(SINOPSE)
         val fundo = intent.getStringExtra(FUNDOURL)

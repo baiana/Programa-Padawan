@@ -13,7 +13,7 @@ import retrofit2.http.Query
 interface FilmeInterface {
     @GET("3/movie/popular?")
     fun listaFilmes(
-            @Query("api_key") apikey: String,
+            @Query("api_key") apikey: String ,
             @Query("language") idioma: String
     ): Call<FilmResult>
 
@@ -40,6 +40,15 @@ interface FilmeInterface {
     fun listaSciFi(
             @Query("api_key") apikey: String,
             @Query("language") idioma: String
+    ):Call<FilmResult>
+
+    @GET("/3/search/movie?")
+    fun pesquisaFilme(
+            @Query("api_key") apikey: String,
+            @Query("language") idioma: String,
+            @Query("query")filmeNome:String?,
+            @Query("include_adult")adulto:String = "false"
+
     ):Call<FilmResult>
 
 }
