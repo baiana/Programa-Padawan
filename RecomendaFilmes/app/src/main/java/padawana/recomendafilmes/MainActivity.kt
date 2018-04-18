@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         val viewPager: ViewPager = viewPager
         viewPager.adapter = Adapter(supportFragmentManager)
+
         val tabLayout = tabLayout
         tabLayout.setupWithViewPager(viewPager)
         setSupportActionBar(toolbar)

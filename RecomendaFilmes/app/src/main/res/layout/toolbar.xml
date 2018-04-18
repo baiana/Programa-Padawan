@@ -11,6 +11,7 @@
         android:layout_height="?android:attr/actionBarSize"
         android:orientation="vertical"
         app:theme="@style/AnaToolbar"
+        app:layout_scrollFlags="scroll|enterAlways"
         app:titleTextColor="@color/primary_text" />
 
 </RelativeLayout>

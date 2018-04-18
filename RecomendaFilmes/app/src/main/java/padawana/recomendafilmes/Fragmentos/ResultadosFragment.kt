@@ -29,8 +29,6 @@ import retrofit2.Response
 @SuppressLint("ValidFragment")
 
 class ResultadosFragment : Fragment() {
-    //TODO aviso de loading
-
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(R.layout.fragment_resultados, container, false)
@@ -78,23 +76,23 @@ class ResultadosFragment : Fragment() {
         }
     }
 
-fun pesquisarFilmes(stringFilme:String){
-    val call: Call<FilmResult> = API.moviesApi.pesquisaFilme("9d61623e84414389bee8063e589ae6f4", "pt-BR",stringFilme)
-    call.enqueue(object: Callback<FilmResult?> {
-        override fun onFailure(call: Call<FilmResult?>?, t: Throwable?) {
-            Log.e("ERRO no ON FAILURE\n", t?.message)
-            displayAlert("Erro no CallBack")
-        }
-
-        @SuppressLint("NewApi")
-        override fun onResponse(call: Call<FilmResult?>?, response: Response<FilmResult?>?) {
-
-            if (response != null && response.isSuccessful) {
-                initRecycleView(response.body())
-            } else {
-                displayAlert("Erro no OnResponse")
+    fun pesquisarFilmes(stringFilme:String){
+        val call: Call<FilmResult> = API.moviesApi.pesquisaFilme("9d61623e84414389bee8063e589ae6f4", "pt-BR",stringFilme)
+        call.enqueue(object: Callback<FilmResult?> {
+            override fun onFailure(call: Call<FilmResult?>?, t: Throwable?) {
+                Log.e("ERRO no ON FAILURE\n", t?.message)
+                displayAlert("Erro no CallBack")
             }
-        }
-    })
-}
+
+            @SuppressLint("NewApi")
+            override fun onResponse(call: Call<FilmResult?>?, response: Response<FilmResult?>?) {
+
+                if (response != null && response.isSuccessful) {
+                    initRecycleView(response.body())
+                } else {
+                    displayAlert("Erro no OnResponse")
+                }
+            }
+        })
+    }
 }

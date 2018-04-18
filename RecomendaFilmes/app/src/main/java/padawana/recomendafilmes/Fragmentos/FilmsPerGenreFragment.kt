@@ -39,7 +39,7 @@ class FilmsPerGenreFragment: Fragment() {
     }
 
 
-        override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
         val genre: Genre = arguments.getSerializable(genreKey) as Genre
@@ -49,7 +49,7 @@ class FilmsPerGenreFragment: Fragment() {
             Genre.ADVENTURE -> API.moviesApi.listaAventura("9d61623e84414389bee8063e589ae6f4", "pt-BR")
             Genre.SCIFI -> API.moviesApi.listaSciFi("9d61623e84414389bee8063e589ae6f4", "pt-BR")
             Genre.STARWARS ->API.moviesApi.pesquisaFilme("9d61623e84414389bee8063e589ae6f4", "pt-BR","Star Wars")
-          }
+        }
         call.enqueue(object: Callback<FilmResult?> {
             override fun onFailure(call: Call<FilmResult?>?, t: Throwable?) {
                 Log.e("ERRO no ON FAILURE\n", t?.message)
