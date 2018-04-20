@@ -4,4 +4,7 @@
     <string name="SugestErro">Cheque sua internet e aprecie essa pipoca enquanto o problema é resolvido!</string>
     <string name="titulo">Titulo</string>
     <string name="busca">Busca</string>
-    </resources>
+    <string name="ErroCallback">Erro no CallBack</string>
+    <string name="ErroOnFailure">Erro no onFailura</string>
+    <string name="ErroOnResponse">Erro no OnResponse</string>
+</resources>

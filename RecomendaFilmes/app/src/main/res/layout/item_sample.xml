@@ -1,35 +1,27 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_width="match_parent">
+    android:foreground="?android:attr/selectableItemBackground">
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view"
-        android:layout_width="200dp"
+    <ImageView
+        android:id="@+id/fundo"
+        android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:foreground="?android:attr/selectableItemBackground"
-        card_view:cardCornerRadius="2dp">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        android:background="@android:color/black"
+        android:scaleType="centerCrop" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:id="@+id/fundo"
-                android:background="@android:color/black" />
+    <TextView
+        android:id="@+id/labelTXT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:background="#e4212121"
+        android:text="@string/titulo"
+        android:theme="@style/SampleTxt" />
 
-            <TextView
-                android:id="@+id/labelTXT"
-                android:layout_alignParentBottom="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/SampleTxt"
-                android:text="@string/titulo"
-                android:background="#e4212121"
-                 />
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+
+</RelativeLayout>

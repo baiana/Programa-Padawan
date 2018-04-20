@@ -7,7 +7,6 @@
     android:id="@+id/avalia"
     android:gravity="center_horizontal">
 
-
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"

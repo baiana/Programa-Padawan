@@ -1,15 +1,10 @@
-
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="padawana.recomendafilmes.Fragmentos.ResultadosFragment">
 
-    <include
-        android:id="@+id/loadingBar"
-        layout="@layout/loading"
-        />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewPesquisa"
@@ -18,10 +13,19 @@
 
     <ImageView
         android:id="@+id/carinhaTriste"
-        android:src="@mipmap/sadsleppy"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="50dp"
+        android:src="@mipmap/sadsleppy"
         android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="5dp"
+        android:indeterminate="true" />
 
 </FrameLayout>
