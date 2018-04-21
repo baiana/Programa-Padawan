@@ -1,4 +1,5 @@
 package padawana.recomendafilmes
+
 import android.content.Context
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
@@ -27,8 +28,8 @@ class SampleRecyclerViewAdapter(private val context: Context, private val filmes
             val intent = Intent(context, FilmeDetailsActivity::class.java)
             intent.putExtra(FilmeDetailsActivity.MESSAGE, filmeItem.titulo)
             intent.putExtra(FilmeDetailsActivity.SINOPSE, filmeItem.sinopse)
-            intent.putExtra(FilmeDetailsActivity.ESTRELAS,filmeItem.voteAverage.toString())
-            intent.putExtra(FilmeDetailsActivity.FUNDOURL,filmeItem.posterPath)
+            intent.putExtra(FilmeDetailsActivity.ESTRELAS, filmeItem.voteAverage.toString())
+            intent.putExtra(FilmeDetailsActivity.FUNDOURL, filmeItem.posterPath)
             context.startActivity(intent)
         }
     }

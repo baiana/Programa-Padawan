@@ -24,7 +24,8 @@ import padawana.recomendafilmespackage.FilmResult
 class ResultadosFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-       // var loading: ProgressBar? = progressBar
+
+        // var loading: ProgressBar? = progressBar
         return inflater!!.inflate(R.layout.fragment_resultados, container, false)
     }
 
@@ -44,7 +45,7 @@ class ResultadosFragment : Fragment() {
 
         } else {
             toast.show().let {
-          //      loading?.visibility = View.GONE
+
                 carinhaTriste.visibility = View.VISIBLE
             }
 
@@ -71,19 +72,19 @@ class ResultadosFragment : Fragment() {
     }
 
     fun onSearchError(erroMensage: String) {
-        //progressBar.visibility = View.GONE
+        progressBar.visibility = View.GONE
         Log.e(getString(R.string.ErroOnFailure), erroMensage)
         displayAlert(getString(R.string.ErroCallback))
     }
 
 
     fun onSearchStart() {
-        //progressBar.visibility = View.VISIBLE
+        progressBar.visibility = View.VISIBLE
 
     }
 
     fun onSearchResult(films: FilmResult?) {
-        //progressBar.visibility = View.GONE
+        progressBar.visibility = View.GONE
         initRecycleView(films)
     }
 

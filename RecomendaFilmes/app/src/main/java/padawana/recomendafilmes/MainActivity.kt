@@ -4,14 +4,12 @@
     import android.app.SearchManager
     import android.content.Context
     import android.os.Bundle
-    import android.support.design.widget.TabLayout
     import android.support.v4.app.Fragment
     import android.support.v4.app.FragmentManager
     import android.support.v4.app.FragmentPagerAdapter
     import android.support.v4.view.ViewPager
     import android.support.v7.app.AppCompatActivity
     import android.support.v7.widget.SearchView
-    import android.util.Log
     import android.view.Menu
     import android.view.View
     import kotlinx.android.synthetic.main.activity_main.*
@@ -20,7 +18,6 @@
     import padawana.recomendafilmes.Fragmentos.FilmsPerGenreFragment
     import padawana.recomendafilmes.Fragmentos.FilmsPerGenreFragment.Genre.*
     import padawana.recomendafilmes.Fragmentos.ResultadosFragment
-    import padawana.recomendafilmes.R.id.carinhaTriste
     import padawana.recomendafilmes.Retrofit.API
     import padawana.recomendafilmespackage.FilmResult
     import retrofit2.Call
