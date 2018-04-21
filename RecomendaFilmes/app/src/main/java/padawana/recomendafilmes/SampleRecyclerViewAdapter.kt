@@ -24,11 +24,11 @@ class SampleRecyclerViewAdapter(private val context: Context, private val filmes
         Picasso.get().load("https://image.tmdb.org/t/p/w500${filmeItem.posterPath}").resize(200, 240).centerCrop().into(holder?.fundo)
 
         holder?.itemView?.setOnClickListener {
-            val intent = Intent(context, SecondActivity::class.java)
-            intent.putExtra(SecondActivity.MESSAGE, filmeItem.titulo)
-            intent.putExtra(SecondActivity.SINOPSE, filmeItem.sinopse)
-            intent.putExtra(SecondActivity.ESTRELAS,filmeItem.voteAverage.toString())
-            intent.putExtra(SecondActivity.FUNDOURL,filmeItem.posterPath)
+            val intent = Intent(context, FilmeDetailsActivity::class.java)
+            intent.putExtra(FilmeDetailsActivity.MESSAGE, filmeItem.titulo)
+            intent.putExtra(FilmeDetailsActivity.SINOPSE, filmeItem.sinopse)
+            intent.putExtra(FilmeDetailsActivity.ESTRELAS,filmeItem.voteAverage.toString())
+            intent.putExtra(FilmeDetailsActivity.FUNDOURL,filmeItem.posterPath)
             context.startActivity(intent)
         }
     }

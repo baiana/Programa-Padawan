@@ -7,4 +7,5 @@
     <string name="ErroCallback">Erro no CallBack</string>
     <string name="ErroOnFailure">Erro no onFailura</string>
     <string name="ErroOnResponse">Erro no OnResponse</string>
+    <string name="APIChave">9d61623e84414389bee8063e589ae6f4</string>
 </resources>

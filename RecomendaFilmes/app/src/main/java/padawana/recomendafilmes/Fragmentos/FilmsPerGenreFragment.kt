@@ -4,8 +4,16 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.*
+import android.widget.AbsListView
+import android.widget.AdapterView
+import com.mugen.Mugen
+import com.mugen.Mugen.with
+import com.mugen.MugenCallbacks
+import com.mugen.attachers.BaseAttacher
+import com.mugen.attachers.RecyclerViewAttacher
 import kotlinx.android.synthetic.main.alert.view.*
 import kotlinx.android.synthetic.main.fragment_filmes.*
 import padawana.recomendafilmes.Retrofit.API
@@ -17,7 +25,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FilmsPerGenreFragment: Fragment() {
+class FilmsPerGenreFragment : Fragment() {
 
     enum class Genre {
         POPULAR,
@@ -43,14 +51,16 @@ class FilmsPerGenreFragment: Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val genre: Genre = arguments.getSerializable(genreKey) as Genre
-        val call: Call<FilmResult> = when (genre) {
-            Genre.POPULAR -> API.moviesApi.listaFilmes("9d61623e84414389bee8063e589ae6f4", "pt-BR")
-            Genre.DRAMA -> API.moviesApi.listaDrama("9d61623e84414389bee8063e589ae6f4", "pt-BR", "created_at.asc")
-            Genre.ADVENTURE -> API.moviesApi.listaAventura("9d61623e84414389bee8063e589ae6f4", "pt-BR")
-            Genre.SCIFI -> API.moviesApi.listaSciFi("9d61623e84414389bee8063e589ae6f4", "pt-BR")
-            Genre.STARWARS ->API.moviesApi.pesquisaFilme("9d61623e84414389bee8063e589ae6f4", "pt-BR","Star Wars")
-        }
-        call.enqueue(object: Callback<FilmResult?> {
+        ChamaFilmes(genre)
+
+
+        return inflater!!.inflate(R.layout.fragment_filmes, container, false)
+    }
+
+
+    fun ChamaFilmes(genre: Genre) {
+        val call: Call<FilmResult> = SelecionaGenero(genre)
+        call.enqueue(object : Callback<FilmResult?> {
             override fun onFailure(call: Call<FilmResult?>?, t: Throwable?) {
                 Log.e("ERRO no ON FAILURE\n", t?.message)
                 displayAlert("Erro no CallBack")
@@ -64,14 +74,22 @@ class FilmsPerGenreFragment: Fragment() {
                 }
             }
         })
+    }
 
-        return inflater!!.inflate(R.layout.fragment_filmes, container, false)
+    fun SelecionaGenero(genre: Genre): Call<FilmResult> {
+        when (genre) {
+            Genre.POPULAR -> return API.moviesApi.listaFilmes()
+            Genre.DRAMA -> return API.moviesApi.listaDrama()
+            Genre.ADVENTURE -> return API.moviesApi.listaAventura()
+            Genre.SCIFI -> return API.moviesApi.listaSciFi()
+            Genre.STARWARS -> return API.moviesApi.pesquisaFilme("9d61623e84414389bee8063e589ae6f4", "pt-BR", "Star Wars")
+        }
     }
 
     private fun initRecycleView(films: FilmResult?) {
-        if  (films?.results != null && films.results.isNotEmpty()) {
+        if (films?.results != null && films.results.isNotEmpty()) {
             recyclerViewFilme?.setHasFixedSize(true)
-            recyclerViewFilme?.layoutManager = GridLayoutManager(context,2)
+            recyclerViewFilme?.layoutManager = GridLayoutManager(context, 2)
             recyclerViewFilme?.adapter = SampleRecyclerViewAdapter(context, films)
         } else {
             displayAlert("Erro no initRecycleView")

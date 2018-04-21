@@ -7,21 +7,19 @@
     android:layout_gravity="center"
     android:background="#ffffff">
 
-    <include
-        android:id="@+id/toolbarInclude"
-        layout="@layout/toolbar" />
+    <include layout="@layout/toolbar" />
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/Fundototal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbarInclude"
+        android:layout_below="@id/toolbar"
         android:scaleType="fitXY" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbarInclude"
+        android:layout_below="@id/toolbar"
         android:layout_marginBottom="12dp"
         android:layout_marginTop="10dp">
 

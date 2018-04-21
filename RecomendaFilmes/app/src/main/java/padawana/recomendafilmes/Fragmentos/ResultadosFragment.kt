@@ -24,13 +24,14 @@ import padawana.recomendafilmespackage.FilmResult
 class ResultadosFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+       // var loading: ProgressBar? = progressBar
         return inflater!!.inflate(R.layout.fragment_resultados, container, false)
     }
 
 
     private fun initRecycleView(films: FilmResult?) {
-        var loading: ProgressBar? = progressBar
-        loading?.visibility = View.VISIBLE
+        //var loading: ProgressBar? = progressBar
+        //loading?.visibility = View.VISIBLE
 
         val toast = Toast.makeText(context, "Ops! Filme não encontrado\nConfira sua pesquisa tente novamente", Toast.LENGTH_LONG)
         toast.setGravity(Gravity.CENTER, 0, 0)
@@ -43,7 +44,7 @@ class ResultadosFragment : Fragment() {
 
         } else {
             toast.show().let {
-                loading?.visibility = View.GONE
+          //      loading?.visibility = View.GONE
                 carinhaTriste.visibility = View.VISIBLE
             }
 
@@ -70,42 +71,20 @@ class ResultadosFragment : Fragment() {
     }
 
     fun onSearchError(erroMensage: String) {
-        progressBar.visibility = View.GONE
+        //progressBar.visibility = View.GONE
         Log.e(getString(R.string.ErroOnFailure), erroMensage)
         displayAlert(getString(R.string.ErroCallback))
     }
 
 
     fun onSearchStart() {
-        progressBar.visibility = View.VISIBLE
+        //progressBar.visibility = View.VISIBLE
 
     }
 
     fun onSearchResult(films: FilmResult?) {
-        progressBar.visibility = View.GONE
+        //progressBar.visibility = View.GONE
         initRecycleView(films)
     }
 
-    /*fun pesquisarFilmes(stringFilme: String) {
-        val call: Call<FilmResult> = API.moviesApi.pesquisaFilme("9d61623e84414389bee8063e589ae6f4", "pt-BR", stringFilme)
-        call.enqueue(object : Callback<FilmResult?> {
-            override fun onFailure(call: Call<FilmResult?>?, t: Throwable?) {
-                Log.e("ERRO no ON FAILURE\n", t?.message)
-                displayAlert("Erro no CallBack")
-            }
-
-            @SuppressLint("NewApi")
-            override fun onResponse(call: Call<FilmResult?>?, response: Response<FilmResult?>?) {
-
-                if (response != null && response.isSuccessful) {
-
-                    initRecycleView(response.body())
-                } else {
-                    displayAlert("Erro no OnResponse")
-                }
-            }
-        })
-    }
-}
-*/
 }

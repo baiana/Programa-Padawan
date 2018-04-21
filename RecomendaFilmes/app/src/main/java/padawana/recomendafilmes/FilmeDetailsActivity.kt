@@ -5,15 +5,14 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.Layout.JUSTIFICATION_MODE_INTER_WORD
 import android.view.MenuItem
-import android.widget.ImageView
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_second.*
+import kotlinx.android.synthetic.main.film_details.*
 import kotlinx.android.synthetic.main.avaliacao.*
 
 import kotlinx.android.synthetic.main.toolbar.*
 
 
-class SecondActivity : AppCompatActivity() {
+class FilmeDetailsActivity : AppCompatActivity() {
 
     companion object {
         const val MESSAGE = "Titulo"
@@ -24,7 +23,7 @@ class SecondActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_second)
+        setContentView(R.layout.film_details)
 
         val title = intent.getStringExtra(MESSAGE)
         val sinopse = intent.getStringExtra(SINOPSE)
