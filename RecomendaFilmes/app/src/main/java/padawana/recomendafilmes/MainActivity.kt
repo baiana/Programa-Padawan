@@ -23,6 +23,10 @@
     import retrofit2.Call
     import retrofit2.Callback
     import retrofit2.Response
+import padawana.recomendafilmes.Database.AppDatabase
+import android.arch.persistence.room.Room
+
+
 
     class MainActivity : AppCompatActivity() {
 
@@ -32,6 +36,10 @@
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
             initToolbar()
+
+            val db = Room.databaseBuilder(applicationContext,
+                    AppDatabase::class.java, "databaseRecomendaFilmes").build()
+            TODO("Implementar LiveData")
 
             val viewPager: ViewPager = viewPager
             viewPager.adapter = Adapter(supportFragmentManager)
