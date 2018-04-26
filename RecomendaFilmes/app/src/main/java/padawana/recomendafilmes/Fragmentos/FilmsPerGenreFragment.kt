@@ -57,7 +57,7 @@ class FilmsPerGenreFragment : Fragment() {
 
         return inflater!!.inflate(R.layout.fragment_filmes, container, false)
     }
-
+        //TODO infinite scroll
     private fun InfiniteScroll(genre: Genre): BaseAttacher<*, *> {
         val toastTeste = Toast.makeText(context, "Infitite Scroll", Toast.LENGTH_LONG)
         toastTeste.setGravity(Gravity.CENTER, 0, 0)

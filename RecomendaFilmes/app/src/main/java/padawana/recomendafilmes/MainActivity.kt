@@ -36,17 +36,19 @@ import android.arch.persistence.room.Room
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
             initToolbar()
-
-            val db = Room.databaseBuilder(applicationContext,
-                    AppDatabase::class.java, "databaseRecomendaFilmes").build()
-            TODO("Implementar LiveData")
-
             val viewPager: ViewPager = viewPager
             viewPager.adapter = Adapter(supportFragmentManager)
 
             val tabLayout = tabLayout
             tabLayout.setupWithViewPager(viewPager)
             setSupportActionBar(toolbar)
+
+
+            val db = Room.databaseBuilder(applicationContext,
+                    AppDatabase::class.java, "databaseRecomendaFilmes").build()
+            TODO("Implementar LiveData")
+
+
         }
 
         override fun onCreateOptionsMenu(menu: Menu?): Boolean {
