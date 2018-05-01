@@ -1,15 +1,19 @@
 package padawana.recomendafilmes
 
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.Layout.JUSTIFICATION_MODE_INTER_WORD
 import android.view.MenuItem
+import android.view.View
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.film_details.*
 import kotlinx.android.synthetic.main.avaliacao.*
+import kotlinx.android.synthetic.main.favorito.*
 
 import kotlinx.android.synthetic.main.toolbar.*
+import padawana.recomendafilmes.R.mipmap.*
 
 
 class FilmeDetailsActivity : AppCompatActivity() {
@@ -19,6 +23,9 @@ class FilmeDetailsActivity : AppCompatActivity() {
         const val SINOPSE = "Sinopse"
         const val FUNDOURL = "FUNDOURL"
         const val ESTRELAS = ""
+        const val FAVORITOS = false
+
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,8 +36,19 @@ class FilmeDetailsActivity : AppCompatActivity() {
         val sinopse = intent.getStringExtra(SINOPSE)
         val fundo = intent.getStringExtra(FUNDOURL)
         val mvotos = intent.getStringExtra(ESTRELAS)
+        var favorito:Boolean = intent.getBooleanExtra(FAVORITOS.toString(),false)
 
-        setMessage(title, sinopse, fundo, mvotos)
+        favoritoButton.setOnClickListener({
+            favorito = favorito.not()
+            if(favorito){
+                favoritoButton.setBackgroundResource(estrela)
+            }else{
+                favoritoButton.setBackgroundResource(emptystar)
+            }
+
+        })
+
+        setMessage(title, sinopse, fundo, mvotos,favorito)
         initToolbar(title)
     }
 
@@ -46,9 +64,16 @@ class FilmeDetailsActivity : AppCompatActivity() {
             supportActionBar?.title = title
     }
 
-    private fun setMessage(stringSampleItem: String?, sinopse: String?, fundo: String?, votos:String?) {
+    private fun setMessage(stringSampleItem: String?, sinopse: String?, fundo: String?, votos: String?,favorito:Boolean) {
         labelTXT?.text = stringSampleItem
         sinopseTXT.text = sinopse
+        if(favorito){
+            favoritoButton.setBackgroundResource(estrela)
+        }else{
+            favoritoButton.setBackgroundResource(emptystar)
+        }
+        //TODO chamar função do FilmeDAO favoritar(valor:Boolean,id:Int) passando favoritar(efavorito,filmeItem.idFilme)
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             sinopseTXT.justificationMode = JUSTIFICATION_MODE_INTER_WORD
         }

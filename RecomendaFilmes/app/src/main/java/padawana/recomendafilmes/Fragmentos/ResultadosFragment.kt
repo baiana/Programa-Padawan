@@ -22,8 +22,7 @@ import padawana.recomendafilmespackage.FilmResult
 @SuppressLint("ValidFragment")
 
 class ResultadosFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // var loading: ProgressBar? = progressBar
         return inflater!!.inflate(R.layout.fragment_resultados, container, false)
@@ -41,7 +40,7 @@ class ResultadosFragment : Fragment() {
             carinhaTriste.visibility = View.GONE
             recyclerViewPesquisa?.setHasFixedSize(true)
             recyclerViewPesquisa?.layoutManager = GridLayoutManager(context, 2)
-            recyclerViewPesquisa?.adapter = SampleRecyclerViewAdapter(context, films)
+            recyclerViewPesquisa?.adapter = SampleRecyclerViewAdapter(context!!, films)
 
         } else {
             toast.show().let {
@@ -54,7 +53,7 @@ class ResultadosFragment : Fragment() {
     }
 
     fun displayAlert(stringErro: String) {
-        val alert = AlertDialog.Builder(context)
+        val alert = AlertDialog.Builder(context!!)
         val nullParent: ViewGroup? = null
         val editaAlerta = layoutInflater.inflate(R.layout.alert, nullParent)
         editaAlerta.textComplementoErro.text = stringErro

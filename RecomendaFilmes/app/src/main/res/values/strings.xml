@@ -8,4 +8,7 @@
     <string name="ErroOnFailure">Erro no onFailura</string>
     <string name="ErroOnResponse">Erro no OnResponse</string>
     <string name="APIChave">9d61623e84414389bee8063e589ae6f4</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

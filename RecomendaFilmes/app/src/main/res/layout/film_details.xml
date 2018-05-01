@@ -7,14 +7,16 @@
     android:layout_gravity="center"
     android:background="#ffffff">
 
-    <include layout="@layout/toolbar" />
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/Fundototal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
-        android:scaleType="fitXY" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        android:layout_alignParentLeft="true" />
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,6 +32,10 @@
             android:background="#c6ffffff"
             android:gravity="center"
             android:orientation="vertical">
+
+            <include layout="@layout/favorito"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" />
 
             <ImageView
                 android:id="@+id/fundop"
