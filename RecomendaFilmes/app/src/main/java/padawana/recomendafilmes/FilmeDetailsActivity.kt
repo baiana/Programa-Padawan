@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import android.text.Layout.JUSTIFICATION_MODE_INTER_WORD
 import android.view.MenuItem
 import android.view.View
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.avaliacao.*
 import kotlinx.android.synthetic.main.favorito.*
 
 import kotlinx.android.synthetic.main.toolbar.*
+import padawana.recomendafilmes.Database.AppDatabase
 import padawana.recomendafilmes.R.mipmap.*
 
 
@@ -24,6 +26,7 @@ class FilmeDetailsActivity : AppCompatActivity() {
         const val FUNDOURL = "FUNDOURL"
         const val ESTRELAS = ""
         const val FAVORITOS = false
+        const val ID = 0
 
 
     }
@@ -31,7 +34,7 @@ class FilmeDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.film_details)
-
+        val id:Int = intent.getIntExtra(ID.toString(),0)
         val title = intent.getStringExtra(MESSAGE)
         val sinopse = intent.getStringExtra(SINOPSE)
         val fundo = intent.getStringExtra(FUNDOURL)
@@ -45,34 +48,34 @@ class FilmeDetailsActivity : AppCompatActivity() {
             }else{
                 favoritoButton.setBackgroundResource(emptystar)
             }
-
+            AppDatabase.getInstance(baseContext)!!.filmesDao().favoritar(favorito,id)
         })
 
-        setMessage(title, sinopse, fundo, mvotos,favorito)
+        setMessage(title, sinopse, fundo, mvotos,favorito,id)
         initToolbar(title)
     }
 
     private fun initToolbar(title: String) {
-        setSupportActionBar(toolbar)
+        setSupportActionBar(toolbarDetails as Toolbar?)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         if (title.isBlank())
             supportActionBar?.title = getString(R.string.app_name)
         else
             supportActionBar?.title = title
     }
 
-    private fun setMessage(stringSampleItem: String?, sinopse: String?, fundo: String?, votos: String?,favorito:Boolean) {
+    private fun setMessage(stringSampleItem: String?, sinopse: String?, fundo: String?, votos: String?,favorito:Boolean,id:Int) {
         labelTXT?.text = stringSampleItem
         sinopseTXT.text = sinopse
+        AppDatabase.getInstance(baseContext)!!.filmesDao().favoritar(favorito,id)
         if(favorito){
             favoritoButton.setBackgroundResource(estrela)
+
         }else{
             favoritoButton.setBackgroundResource(emptystar)
         }
-        //TODO chamar função do FilmeDAO favoritar(valor:Boolean,id:Int) passando favoritar(efavorito,filmeItem.idFilme)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             sinopseTXT.justificationMode = JUSTIFICATION_MODE_INTER_WORD

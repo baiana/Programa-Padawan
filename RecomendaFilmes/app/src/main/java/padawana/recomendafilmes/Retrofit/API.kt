@@ -1,4 +1,4 @@
-package padawana.recomendafilmes.Retrofit
+package padawana.recomendafilmes.retrofit
 
 import padawana.recomendafilmes.FilmeInterface
 import retrofit2.Retrofit

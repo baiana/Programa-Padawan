@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.alert.view.*
 import kotlinx.android.synthetic.main.fragment_resultados.*
 import padawana.recomendafilmes.R
 import padawana.recomendafilmes.SampleRecyclerViewAdapter
+import padawana.recomendafilmes.retrofit.Filme
 import padawana.recomendafilmespackage.FilmResult
 
 
@@ -40,7 +41,7 @@ class ResultadosFragment : Fragment() {
             carinhaTriste.visibility = View.GONE
             recyclerViewPesquisa?.setHasFixedSize(true)
             recyclerViewPesquisa?.layoutManager = GridLayoutManager(context, 2)
-            recyclerViewPesquisa?.adapter = SampleRecyclerViewAdapter(context!!, films)
+            recyclerViewPesquisa?.adapter = SampleRecyclerViewAdapter(context!!, films.results as ArrayList<Filme>)
 
         } else {
             toast.show().let {
@@ -71,19 +72,18 @@ class ResultadosFragment : Fragment() {
     }
 
     fun onSearchError(erroMensage: String) {
-        progressBar.visibility = View.GONE
+        progressBar?.visibility = View.GONE
         Log.e(getString(R.string.ErroOnFailure), erroMensage)
         displayAlert(getString(R.string.ErroCallback))
     }
 
 
     fun onSearchStart() {
-        progressBar.visibility = View.VISIBLE
-
+        progressBar?.visibility = View.VISIBLE
     }
 
     fun onSearchResult(films: FilmResult?) {
-        progressBar.visibility = View.GONE
+        progressBar?.visibility = View.GONE
         initRecycleView(films)
     }
 

@@ -12,13 +12,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.mugen.Mugen
 import com.mugen.MugenCallbacks
-import com.mugen.attachers.BaseAttacher
 import kotlinx.android.synthetic.main.alert.view.*
 import kotlinx.android.synthetic.main.fragment_filmes.*
-import kotlinx.android.synthetic.main.fragment_resultados.*
+import padawana.recomendafilmes.Database.AppDatabase
 import padawana.recomendafilmes.R
-import padawana.recomendafilmes.Retrofit.API
 import padawana.recomendafilmes.SampleRecyclerViewAdapter
+import padawana.recomendafilmes.retrofit.API
+import padawana.recomendafilmes.retrofit.Filme
 import padawana.recomendafilmespackage.FilmResult
 import retrofit2.Call
 import retrofit2.Callback
@@ -46,94 +46,110 @@ class FilmsPerGenreFragment : Fragment() {
         }
     }
 
+    private lateinit var adapter: SampleRecyclerViewAdapter
+    private var emChamada = false
+    private var carregueiTudo = false
     var numeroPagina: Int = 0
     var carregaPagina: Int = 0
-    var genero:Genre = Genre.POPULAR
+    var genero: Genre = Genre.POPULAR
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val genre: Genre = arguments?.getSerializable(genreKey) as Genre
-        ChamaFilmes(genre)
-        genero = genre
-        return inflater!!.inflate(R.layout.fragment_filmes, container, false)
+        return inflater.inflate(R.layout.fragment_filmes, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //val attacher = InfiniteScroll(genero)
-        //attacher.start()
-
+        val genre: Genre = arguments?.getSerializable(genreKey) as Genre
+        AppDatabase.getInstance(context!!)?.filmesDao()
+        chamaFilmes(genre)
+        genero = genre
     }
 
-    //TODO infinite scroll
-    private fun InfiniteScroll(genre: Genre): BaseAttacher<*, *> {
-        val toastTeste = Toast.makeText(context, "Infitite Scroll", Toast.LENGTH_LONG)
-        toastTeste.setGravity(Gravity.CENTER, 0, 0)
-        val attacher: BaseAttacher<*, *> = Mugen.with(recyclerViewFilme, object : MugenCallbacks {
+    private fun config() {
+        val toastNotifica = Toast.makeText(context, null, Toast.LENGTH_LONG)
+        toastNotifica.setGravity(Gravity.CENTER, 0, 0)
+        val attacher = Mugen.with(recyclerViewFilme, object : MugenCallbacks {
 
             override fun onLoadMore() {
-
-                if (carregaPagina == 0 || genre.equals(Genre.POPULAR) || genre.equals(Genre.STARWARS)) {
-                    toastTeste.setText("Essa categoria não possui mais filmes")
-                    toastTeste.show()
+                if (carregaPagina == 0 || genero.equals(Genre.POPULAR) || genero.equals(Genre.STARWARS)) {
+                    emChamada = false
+                    toastNotifica.setText("Essa categoria não possui mais filmes!")
+                    toastNotifica.show()
                 } else {
-                    LoadFilmes(genre)
+                    loadFilmes(genero)
                 }
             }
 
             override fun isLoading(): Boolean {
                 progressBarInfinite.visibility = View.VISIBLE
-                return isLoading
+                return emChamada
             }
 
             override fun hasLoadedAllItems(): Boolean {
-
-                toastTeste.setText("Essa categoria não possui mais filmes\nTente Fazer uma pesquisa")
-                toastTeste.show()
-                progressBar.visibility = View.GONE
-                return false
+                if (carregaPagina == 0 || genero.equals(Genre.POPULAR) || genero.equals(Genre.STARWARS))
+                    toastNotifica.setText("Essa categoria não possui mais filmes\nTente Fazer uma pesquisa")
+                toastNotifica.show()
+                progressBarInfinite.visibility = View.GONE
+                return carregueiTudo
             }
         })
-        return attacher
-
+        attacher.isLoadMoreEnabled = true
+        attacher.loadMoreOffset = 6
+        attacher.start()
     }
 
-
-    fun ChamaFilmes(genre: Genre) {
+    fun chamaFilmes(genre: Genre) {
         val call: Call<FilmResult> = SelecionaGenero(genre)
+        val local = AppDatabase.getInstance(context!!)?.filmesDao()!!.loadFilmes()
         call.enqueue(object : Callback<FilmResult?> {
             override fun onFailure(call: Call<FilmResult?>?, t: Throwable?) {
                 Log.e("ERRO no ON FAILURE\n", t?.message)
-                displayAlert("Erro no CallBack")
+                displayAlert("Ops! você está sem internet\n Carregando filmes do banco")
+                local.let {
+                    initRecycleView(local)
+                }
             }
 
             override fun onResponse(call: Call<FilmResult?>?, response: Response<FilmResult?>?) {
                 if (response != null && response.isSuccessful) {
+                    AppDatabase.getInstance(context!!)?.filmesDao()!!.insertFilme(response.body()!!.results.toTypedArray())
                     numeroPagina = response.body()!!.page
                     carregaPagina = response.body()!!.total_pages - numeroPagina
-                    initRecycleView(response.body())
+                    initRecycleView(response.body()!!.results)
                 } else {
                     displayAlert("Erro no OnResponse")
+                    local.let {
+                        initRecycleView(local)
+                    }
+
                 }
             }
         })
     }
 
-    fun LoadFilmes(genre: Genre) {
+    fun loadFilmes(genre: Genre) {
+        emChamada = true
         numeroPagina++
         val call: Call<FilmResult> = API.moviesApi.LoadFilmes(pagina = numeroPagina.toString(), genero = NumeroGenero(genre))
         call.enqueue(object : Callback<FilmResult?> {
             override fun onFailure(call: Call<FilmResult?>?, t: Throwable?) {
                 Log.e("ERRO no ON FAILURE\n", t?.message)
-                displayAlert("Erro no CallBack")
+                displayAlert("Erro no CallBack\n Carregando filmes do banco")
+                val local = AppDatabase.getInstance(context!!)?.filmesDao()!!.loadFilmes()
+                local.let {
+                    initRecycleView(local)
+                }
             }
 
             override fun onResponse(call: Call<FilmResult?>?, response: Response<FilmResult?>?) {
                 if (response != null && response.isSuccessful) {
                     carregaPagina = response.body()!!.total_pages - numeroPagina
-                    initRecycleView(response.body())
-
+                    adapter.adicionarFilmes(response.body()!!.results as ArrayList<Filme>)
+                    AppDatabase.getInstance(context!!)?.filmesDao()!!.insertFilme(response.body()!!.results.toTypedArray())
                 } else {
                     displayAlert("Erro no OnResponse")
                 }
+                emChamada = false
             }
         })
     }
@@ -158,11 +174,14 @@ class FilmsPerGenreFragment : Fragment() {
         }
     }
 
-    private fun initRecycleView(films: FilmResult?) {
-        if (films?.results != null && films.results.isNotEmpty()) {
+
+    private fun initRecycleView(films: List<Filme>) {
+        if (films.isNotEmpty()) {
             recyclerViewFilme?.setHasFixedSize(true)
             recyclerViewFilme?.layoutManager = GridLayoutManager(context, 2)
-            recyclerViewFilme?.adapter = SampleRecyclerViewAdapter(context!!, films)
+            adapter = SampleRecyclerViewAdapter(context!!, films as ArrayList<Filme>)
+            recyclerViewFilme?.adapter = adapter
+            config()
         } else {
             displayAlert("Erro no initRecycleView")
         }

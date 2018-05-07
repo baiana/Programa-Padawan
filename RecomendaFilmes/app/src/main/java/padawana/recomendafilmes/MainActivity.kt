@@ -15,13 +15,11 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_resultados.*
 import kotlinx.android.synthetic.main.toolbar.*
-import padawana.recomendafilmes.Database.AppDatabase
-import padawana.recomendafilmes.Database.FilmsApplication
 import padawana.recomendafilmes.Fragmentos.FavoritoFragment
 import padawana.recomendafilmes.Fragmentos.FilmsPerGenreFragment
 import padawana.recomendafilmes.Fragmentos.FilmsPerGenreFragment.Genre.*
 import padawana.recomendafilmes.Fragmentos.ResultadosFragment
-import padawana.recomendafilmes.Retrofit.API
+import padawana.recomendafilmes.retrofit.API
 import padawana.recomendafilmespackage.FilmResult
 import retrofit2.Call
 import retrofit2.Callback

@@ -1,4 +1,4 @@
-package padawana.recomendafilmes
+package padawana.recomendafilmes.retrofit
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
@@ -7,10 +7,9 @@ import android.arch.persistence.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "Filmes")
+@Entity(tableName = "filme")
 data class Filme(
-        @PrimaryKey(autoGenerate = true)
-        //var id: Int?=0,
+        @PrimaryKey
         @SerializedName("id") var idFilme: Int? = null,
         @SerializedName("title") var titulo: String? = "Desconhecido",
         @SerializedName("overview") var sinopse: String? = null,
@@ -22,4 +21,5 @@ data class Filme(
         @ColumnInfo(name = "votos")
         @SerializedName("vote_average") var voteAverage: Double? = 0.00,
         @Expose(serialize = false)
-        var favorito: Boolean = false )
+        var favorito: Boolean = false
+)

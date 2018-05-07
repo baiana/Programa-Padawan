@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d183e3237100bcb5b484e1e79dfd3e19",
+    "identityHash": "cf440e876b97477ab0bceb11a1474596",
     "entities": [
       {
-        "tableName": "Filmes",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idFilme` INTEGER PRIMARY KEY AUTOINCREMENT, `titulo` TEXT, `sinopse` TEXT, `posterPath` TEXT, `votos` REAL, `favorito` INTEGER NOT NULL)",
+        "tableName": "filme",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idFilme` INTEGER, `titulo` TEXT, `sinopse` TEXT, `posterPath` TEXT, `votos` REAL, `favorito` INTEGER NOT NULL, PRIMARY KEY(`idFilme`))",
         "fields": [
           {
             "fieldPath": "idFilme",
@@ -49,7 +49,7 @@
           "columnNames": [
             "idFilme"
           ],
-          "autoGenerate": true
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
@@ -57,7 +57,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"d183e3237100bcb5b484e1e79dfd3e19\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"cf440e876b97477ab0bceb11a1474596\")"
     ]
   }
 }

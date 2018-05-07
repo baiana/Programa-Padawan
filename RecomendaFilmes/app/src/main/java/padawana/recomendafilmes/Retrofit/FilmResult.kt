@@ -4,7 +4,7 @@ package padawana.recomendafilmespackage
  * Programado com amor por Ana Luísa Dias em 14/03/2018.
  */
 import android.arch.persistence.room.Embedded
-import padawana.recomendafilmes.Filme
+import padawana.recomendafilmes.retrofit.Filme
 
 data class FilmResult(
         val page: Int,
